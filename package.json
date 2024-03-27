@@ -64,7 +64,8 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.8.0",
     "release-it": "^17.0.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "react-native-keyboard-area": "https://github.com/metafoxapp/react-native-keyboard-area#95e7b6c703c1cc72d2c5e8e6baa3ead9bf18244d"
   },
   "peerDependencies": {
     "@types/react": "*",

@@ -13,6 +13,7 @@ import {
   useWorkletCallback,
 } from 'react-native-reanimated';
 import { KEYBOARD_STATE } from '../constants';
+import { RNKeyboard } from './keyBoardModule';
 
 const KEYBOARD_EVENT_MAPPER = {
   KEYBOARD_SHOW: Platform.select({
@@ -69,6 +70,10 @@ export const useKeyboard = () => {
 
   //#region effects
   useEffect(() => {
+    if (Platform.OS !== 'ios') {
+      return;
+    }
+
     const handleOnKeyboardShow = (event: KeyboardEvent) => {
       runOnUI(handleKeyboardEvent)(
         KEYBOARD_STATE.SHOWN,
@@ -97,10 +102,47 @@ export const useKeyboard = () => {
     );
 
     return () => {
+      if (Platform.OS !== 'ios') {
+        return;
+      }
+
       showSubscription.remove();
       hideSubscription.remove();
     };
   }, [handleKeyboardEvent]);
+
+  useEffect(() => {
+    if (Platform.OS !== 'android') {
+      return;
+    }
+
+    const keyboardHeightChanged = (height: number) => {
+      if (height > 0) {
+        runOnUI(handleKeyboardEvent)(
+          KEYBOARD_STATE.SHOWN,
+          height,
+          150,
+          'easeInEaseOut'
+        );
+      } else {
+        runOnUI(handleKeyboardEvent)(
+          KEYBOARD_STATE.HIDDEN,
+          height,
+          150,
+          'easeInEaseOut'
+        );
+      }
+    };
+
+    RNKeyboard.addKeyboardListener(keyboardHeightChanged);
+    return () => {
+      if (Platform.OS !== 'android') {
+        return;
+      }
+
+      RNKeyboard.removeKeyboardListener(keyboardHeightChanged);
+    };
+  }, [handleKeyboardEvent, keyboardHeight]);
 
   /**
    * This reaction is needed to handle the issue with multiline text input.

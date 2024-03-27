@@ -2013,6 +2013,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
+"@types/react-native@0.62.16":
+  version "0.62.16"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.62.16.tgz#17b05b37482c70126055172e57f5eb110cff7087"
+  integrity sha512-0f5MF4zzqZpZpDmwTmGS0Pd206k2K3rsVjaz0/iuBPZkpWC9r8+/A6WvTTJXgfP2mhRUcMfAqEY0iyz7Xk75qw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@^0.67.7":
   version "0.67.7"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.67.7.tgz#903b7d56fb6a95ca0de897f2925c04ee0d4adee3"
@@ -8042,6 +8049,12 @@ react-native-gesture-handler@^1.10.3:
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+"react-native-keyboard-area@https://github.com/metafoxapp/react-native-keyboard-area#95e7b6c703c1cc72d2c5e8e6baa3ead9bf18244d":
+  version "1.0.5"
+  resolved "https://github.com/metafoxapp/react-native-keyboard-area#95e7b6c703c1cc72d2c5e8e6baa3ead9bf18244d"
+  dependencies:
+    "@types/react-native" "0.62.16"
 
 react-native-reanimated@^2.8.0:
   version "2.8.0"
